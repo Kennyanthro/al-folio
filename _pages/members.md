@@ -22,7 +22,7 @@ order: 1
         <img src="{{ member.img | prepend: '/assets/img/' | relative_url }}" alt="member thumbnail">
         {% endif %}
         <div class="card-body">
-          <h2 class="card-title text-lowercase">{{ member.title }}</h2>
+          <h2 class="card-title">{{ member.title }}</h2>
           <p class="card-text">{{ member.description }}</p>
           <div class="row ml-1 mr-1 p-0">
             {% if member.github %}

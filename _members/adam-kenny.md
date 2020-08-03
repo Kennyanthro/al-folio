@@ -1,10 +1,10 @@
 ---
 layout: member
 title: Adam Kenny
-description: Post-doctoral researcher
+description: post-doctoral researcher
 img: adam-kenny.jpg
 year_joined: 2015
-email: adam.kenny@anthro.ox.ac.uk
+email: 
 twitter_id: kennyanthropus
 orcid_id: 0000-0001-9306-3091
 github_id: aaaakyyyy

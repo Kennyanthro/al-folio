@@ -21,12 +21,12 @@
         {% for author in entry.author_array %}
           {% if forloop.length == 1 %}
             {% if author.last == site.scholar.last_name %}
-              <em>{{author.last}}, {{author.first}}</em>
+              <em>{{author.last}}, {{author.first | slice:0}}.</em>
             {% else %}
               <!-- {{author.last}}, {{author.first}} -->
 	      <!-- added --> 
 	      {% if site.data.coauthors[author.last] %}
-              <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a> <!-- FIXME full stop --->
+              <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first | slice:0}}.</a> <!-- FIXME full stop --->
               {% else %}
 	      {{author.last}}, {{author.first | slice:0}}.  
               {% endif %}
@@ -38,7 +38,7 @@
                 <em>{{author.last}}, {{author.first}}</em>,
               {% else %}
                 {% if site.data.coauthors[author.last] %}
-                  <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a>,
+                  <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first | slice:0}}.</a>,
                 {% else %}
                   <!-- {{author.last}}, {{author.first}}, -->
                   {{author.last}}, {{author.first | slice:0}}.,
@@ -46,10 +46,10 @@
               {% endif %}
             {% else %}
               {% if author.last == site.scholar.last_name %}
-                and <em>{{author.last}}, {{author.first}}</em>
+                and <em>{{author.last}}, {{author.first | slice:0}}.</em>
               {% else %}
                 {% if site.data.coauthors[author.last] %}
-                  and <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a>
+                  and <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first | slice:0}}.</a>
                 {% else %}
                   <!-- and {{author.last}}, {{author.first}} -->
                   and {{author.last}}, {{author.first | slice:0}}.

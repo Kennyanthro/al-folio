@@ -1,10 +1,10 @@
 ---
 layout: member
 title: Rhea Arini
-description: Post-doctoral researcher
+description: post-doctoral researcher
 img: logo-placeholder.png
 year_joined: 2020
-email: rhea.arini@magd.ox.ac.uk
+email: 
 twitter_id: # no icon if left blank
 orcid_id: # no icon if left blank
 github_id: # no icon if left blank

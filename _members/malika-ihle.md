@@ -4,7 +4,7 @@ title: Malika Ihle
 description: Reproducible Research Oxford coordinator
 img: logo-placeholder.png
 year_joined: 2019
-email: malika.ihle@anthro.ox.ac.uk
+email: 
 twitter_id: MalikaIhle
 orcid_id: 0000-0002-3242-5981
 github_id: # no icon if left blank

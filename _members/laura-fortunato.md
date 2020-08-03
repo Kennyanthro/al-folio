@@ -1,10 +1,10 @@
 ---
 layout: member
 title: Laura Fortunato
-description: Principal investigator
+description: principal investigator
 img: laura-fortunato.jpg
 year_joined: 2010
-email: laura.fortunato@anthro.ox.ac.uk
+email: 
 twitter_id: anthrolog
 orcid_id: 0000-0001-8546-9497
 github_id: laurafortunato

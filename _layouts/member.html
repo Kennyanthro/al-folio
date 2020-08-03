@@ -21,7 +21,11 @@ layout: default
       <!-- {{ name | first }} <span class="font-weight-bold"> {{name | middle }} {{ name | last }} </span></h1> -->
 
       <!-- <h1 class="post-title">{{ page.title }}</h1> -->
-    <p class="post-description">{{ page.description }} </p>
+    <p class="post-description">{{ page.description }}
+
+      {% if page.pronouns %} | {{ page.pronouns }} {% endif %}
+
+    </p>
 
   </header>
 
@@ -51,8 +55,6 @@ layout: default
   {% if page.researchgate_id %}<a href="https://www.researchgate.net/profile/{{ page.researchgate_id }}/" target="_blank" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
 
   {% if page.linkedin_id %}<a href="https://www.linkedin.com/in/{{ page.linkedin_id }}/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
-
-  {% if page.pronouns %} <br> {{page.pronouns}} {% endif %}
   
   </span>
 
@@ -87,7 +89,7 @@ layout: default
  <div class="selected-publications">
 
   {% for publication in page.selected_publications %}
-
+  
   <div class="publication" title="publication">
 
     <span>{% reference publication %}</span></div> <!-- FIXME make hyperlink -->
