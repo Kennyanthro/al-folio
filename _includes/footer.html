@@ -1,8 +1,35 @@
 {% if site.footer_fixed %}
 <footer class="fixed-bottom">
   <div class="container mt-0">
-    &copy; Copyright {{ site.time | date: '%Y' }} {{ site.title }}.
+
+    <div class="row">
+      <div class="col-md-11">
+
+    &copy; <!-- copyright  --> {{ site.time | date: '%Y' }} {{ site.title }}.
     {{ site.footer_text }}
+      </div>
+
+      <div class="col-md-1">
+
+	  <a href="mailto:{{ site.email | encode_email }}"><i class="fas fa-envelope"></i></a>
+	  
+	  {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>{% endif %}
+
+      </div>
+
+    <!-- </div> -->
+    
+
+    
+  <!--   &copy; <\!-- copyright  -\-> {{ site.time | date: '%Y' }} {{ site.title }}. -->
+  <!--   {{ site.footer_text }} -->
+  <!-- </div> -->
+  <!-- <div class="container mt-0" align="right"> -->
+  
+  <!--   <a href="mailto:{{ site.email | encode_email }}"><i class="fas fa-envelope"></i></a> -->
+
+  <!--   {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>{% endif %} -->
+    
     {% if site.last_updated %}
     Last updated: {{ "now" | date: '%B %d, %Y' }}.
     {% endif %}
@@ -11,8 +38,13 @@
 {% else %}
 <footer class="sticky-bottom mt-5">
   <div class="container">
-    &copy; Copyright {{ site.time | date: '%Y' }} {{ site.title }}.
+    &copy; <!-- copyright --> {{ site.time | date: '%Y' }} {{ site.title }}.
     {{ site.footer_text }}
+
+    <a href="mailto:{{ site.email | encode_email }}"><i class="fas fa-envelope"></i></a>
+
+    {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>{% endif %}
+
     {% if site.last_updated %}
     Last updated: {{ "now" | date: '%B %d, %Y' }}.
     {% endif %}

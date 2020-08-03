@@ -3,42 +3,157 @@ layout: default
 ---
 
 <div class="post">
+ 
+<style>
+body {
+  background-image: url({{ 'assets/img/logo-icon-white.png' | relative_url }});
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-y: center;
+  margin-bottom: 0 !important;
+}
+<!-- .initial-content { -->
+<!--   min-height: 100vh; -->
+<!--   display: flex; -->
+<!--   justify-content: center; -->
+<!--   flex-direction: column; -->
+<!-- } -->
+<!-- .container { -->
+<!--   color: #fff; -->
+<!--   background-color: #fff; -->
+<!--   opacity: 0.5; -->
+<!--   padding: 1em; -->
+<!--   text-align: justify; -->
+<!-- } -->
+</style>
 
+<!-- <div style="background-image: url('/assets/img/logo-icon-white.png');"> -->
+  
   <header class="post-header">
     {% assign name = site.title | split: ' ' %}
-    <h1 class="post-title"><span class="font-weight-bold">{{ name | first }}</span> {{ name | last }}</h1>
+    <h1 class="post-title">
+      <span class="font-weight-bold">{{ name | first }}</span> 
+      <!-- {{ name | last }} <\!-- FIXME weight anthro -\-> -->
+    </h1>
     <p class="post-description">{{ page.description }}</p>
   </header>
 
   <article>
     <div class="row">
       <div class="col">
-        {{ content }}
-      </div>
-        {% if page.profile %}
-        <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}">
-          {% if page.profile.image %}
-            <img class="img-fluid z-depth-1 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
-          {% endif %}
-          {% if page.profile.address %}
-            <div class="address">
-              {{ page.profile.address }}
-            </div>
-          {% endif %}
-        </div>
-        {% endif %}
+	<h3>
+          {{ content }}
+	</h3>
+	<!-- FIXME below removed so text doesn't bunch up to the left -->
+      <!-- </div> -->
+      <!--   {% if page.profile %} -->
+      <!--   <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}"> -->
+      <!--     {% if page.profile.image %} -->
+      <!--       <img class="img-fluid z-depth-1 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}"> -->
+      <!--     {% endif %} -->
+      <!--     {% if page.profile.address %} -->
+      <!--       <div class="address"> -->
+      <!--         {{ page.profile.address }} -->
+      <!--       </div> -->
+      <!--     {% endif %} -->
+      <!--   </div> -->
+      <!--   {% endif %} -->
     </div>
 
+  </div>
+    
+    <hr>
+
+<!--     <\!-- From services.html creative theme -\-> -->
+<!-- <section id="services" align="center"> -->
+<!--     <\!-- <div class="container"> -\-> -->
+<!--     <\!--     <div class="row"> -\-> -->
+<!--     <\!--         <div class="col-lg-12 text-center"> -\-> -->
+<!--     <\!--             <h2 class="section-heading">find out:</h2> -\-> -->
+<!--     <\!--             <hr class="primary"> -\-> -->
+<!--     <\!--         </div> -\-> -->
+<!--     <\!--     </div> -\-> -->
+<!--     <\!-- </div> -\-> -->
+<!--     <div class="container" align="center"> <\!-- or class="social" -\-> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-lg-3 col-md-6 text-center"> -->
+<!--                 <div class="service-box"> -->
+<!--                     <i class="fa fa-4x fa-users wow bounceIn text-primary"></i> -->
+<!--                     <h3>people</h3> -->
+<!--                     <p class="text-muted">who we are</p> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             <div class="col-lg-3 col-md-6 text-center"> -->
+<!--                 <div class="service-box"> -->
+<!--                     <i class="fa fa-4x fa-laptop-code wow bounceIn text-primary" data-wow-delay=".1s"></i> -->
+<!--                     <h3>projects</h3> -->
+<!--                     <p class="text-muted">what we're up to</p> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             <div class="col-lg-3 col-md-6 text-center"> -->
+<!--                 <div class="service-box"> -->
+<!--                     <i class="fa fa-4x fa-book wow bounceIn text-primary" data-wow-delay=".2s"></i> -->
+<!--                     <h3>publications</h3> -->
+<!--                     <p class="text-muted">what we've done</p> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+    
+<!-- <\!-- insert people, projects, publications -\-> -->
+    
+<!--     <hr> -->
+    
+    <!-- <article> -->
+    <!--   <div class="row"> -->
+    <!-- 	<div class="col"> -->
+    <!--       {% if page.social %} -->
+    <!-- 	  <div class="social" align="center"> -->
+    <!-- 	    <div class="contact-note" display: inline-block>{{ site.contact_note }}</div> -->
+    <!-- 	    {% include social.html %} -->
+    <!-- 	  </div> -->
+    <!-- 	  {% endif %} -->
+    <!-- 	</div> -->
+    <!--     <div class='jekyll-twitter-plugin' align="center"> -->
+	  
+    <!-- 	    {% twitter https://twitter.com/anthrologue maxwidth=350 limit=1 %} -->
+	    
+    <!-- 	</div> -->
+    <!--   </div> -->
+
+    <article>
+
+      {% if page.social %}
+      <div class="container" align="center"> <!-- or class = "social" -->
+	<div class="contact-note" display: inline-block>{{ site.contact_note }}</div>
+	{% include social.html %}
+      </div>
+      {% endif %}
+      <!-- </div> -->
+
+      <!-- FIXME to add twitter -->
+      <!-- <div class='jekyll-twitter-plugin' align="center"> -->
+	  
+      <!-- 	{% twitter https://twitter.com/anthrologue maxwidth=350 limit=1 %} -->
+	    
+      <!-- </div> -->
+
+      <!-- </div> -->
+      
+
+      <!-- FIXME remove news and social -->
+      
     {% if page.news %}
       {% include news.html %}
     {% endif %}
 
-    {% if page.social %}
-    <div class="social">
-      {% include social.html %}
-      <div class="contact-note">{{ site.contact_note }}</div>
-    </div>
-    {% endif %}
-  </article>
+    <!-- {% if page.social %} -->
+    <!-- <div class="social"> -->
+    <!--   {% include social.html %} -->
+    <!--   <div class="contact-note">{{ site.contact_note }}</div> -->
+    <!-- </div> -->
+    <!-- {% endif %} -->
+
+    </article>
 
 </div>

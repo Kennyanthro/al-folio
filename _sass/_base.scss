@@ -60,8 +60,8 @@ a, table.table a {
     }
   }
   .navbar-nav .nav-item .nav-link {
-    &:hover {
-      color: $theme-color;
+      &:hover {
+	  color: $theme-color;
     }
   }
   .navbar-nav .nav-item.active>.nav-link {
@@ -133,7 +133,7 @@ a, table.table a {
   .contact-icon {
     font-size: 4rem;
     a {
-      color: $grey-color-dark;
+	color: $sienna-color; // $grey-color-dark;
       &:hover {
         color: $theme-color;
       }
@@ -144,12 +144,11 @@ a, table.table a {
   }
 }
 
-
 // Footer
 
 footer.fixed-bottom {
   color: lighten($grey-color, 25%);
-  background-color: $grey-color-dark;
+  background-color: $maroon-color; // $grey-color-dark;
   font-size: 0.75rem;
   .container {
     padding-top: 9px;

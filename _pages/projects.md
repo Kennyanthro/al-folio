@@ -2,13 +2,14 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: we are currently involved in the <a site.projects.size</a> following  
 nav: true
----
+order: 1
+--- 
 
 <div class="projects grid">
 
-  {% assign sorted_projects = site.projects | sort: "importance" %}
+  {% assign sorted_projects = site.projects | sort: "year_joined" %}
   {% for project in sorted_projects %}
   <div class="grid-item">
     {% if project.redirect %}
