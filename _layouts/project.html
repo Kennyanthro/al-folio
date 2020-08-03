@@ -1,0 +1,73 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header>
+
+  <hr> <!-- line-->
+
+  <!-- project members: -->
+
+  {% assign sorted_authors = page.authors | sort: "year_joined" %}
+  
+  {% for author in sorted_authors %}
+
+  <a
+    href="../../people/"> <!-- FIXME need to read in project members automatically -->
+    <!-- href="{{ author.url }}"> -->
+    <span class="label"> {{author.name}} </span></a>
+
+  <!-- <button style="font-size:24px"> {{author.name}} <i class="fa fa-user-circle-o"></i></button> -->
+  
+  <!-- {{ author.name }} -->
+
+  {% if forloop.last == false %} | {% endif %}
+  {% endfor %}
+      
+  <!-- 
+  {% if page.members %}
+  <p class="" {{ page.members }} </p>
+     {% endif %}
+    -->     
+
+  <hr> <!-- line-->
+  
+  <article>
+    {{ content }}
+  </article>
+
+<!-- selected publications -->
+
+{% if page.selected_publications %}
+
+<hr>
+
+<h5> selected publications </h5>
+
+ <div class="selected-publications">
+
+  {% for publication in page.selected_publications %}
+
+  <div class="publication" title="publication">
+
+    <!--  <span class="links"> -->
+    <!-- {% if publication.url %} -->
+    <!-- <a href="{{ publication.url }}">{% reference publication %}</a> -->
+    <!-- {% endif %} -->
+    <!--  </span> -->
+
+    <!--  </div> -->
+
+    <span>{% reference publication %}</span></div> <!-- FIXME make hyperlink -->
+    
+  {% endfor %}
+
+ </div>
+
+ {% endif %}
+  
+</div>

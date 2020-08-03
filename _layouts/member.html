@@ -1,0 +1,105 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    {% assign name = page.title | split: ' ' %}
+
+    {% assign first_name = name | first %}
+
+    {% if name.size > 2 %}
+       {% assign middle_names =  name | slice:1, name.size-1 | join:" " %}
+    {% else %}
+       {% assign middle_names = '' %}
+    {% endif %}
+    {% assign last_name = name | last %}
+
+    <h1  class="post-title">
+
+      {{ first_name }} <span class="font-weight-bold"> {{ middle_names }} {{ last_name }} </span></h1>
+      <!-- {{ name | first }} <span class="font-weight-bold"> {{name | middle }} {{ name | last }} </span></h1> -->
+
+      <!-- <h1 class="post-title">{{ page.title }}</h1> -->
+    <p class="post-description">{{ page.description }} </p>
+
+  </header>
+
+  <hr> <!-- line-->
+			  
+  <!-- contact icons  -->
+  <span class="contact-icon text-center">
+
+    <!-- ordered by ARK's subjective evaluation -->
+    
+  <a href="mailto:{{ page.email | encode_email }}"><i class="fas fa-envelope"></i></a>
+
+  {{ page.email }} <br>  
+  
+  {% if page.orcid_id %}<a href="https://orcid.org/{{ page.orcid_id }}" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>{% endif %}
+  
+  {% if page.twitter_id %}<a href="https://twitter.com/{{ page.twitter_id }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>{% endif %}
+
+  {% if page.github_id %}<a href="https://github.com/{{ page.github_id }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+
+  {% if page.osf_id %}<a href="https://osf.io/{{ page.osf_id }}" target="_blank" title="OSF"><i class="ai ai-osf"></i></a>{% endif %}
+  
+  {% if page.googlescholar_id %}<a href="https://scholar.google.com/citations?user={{ page.googlescholar_id }}" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+
+  {% if page.publons_id %}<a href="https://publons.com/a/{{ page.publons_id }}/" target="_blank" title="Publons"><i class="ai ai-publons"></i></a>{% endif %}
+
+  {% if page.researchgate_id %}<a href="https://www.researchgate.net/profile/{{ page.researchgate_id }}/" target="_blank" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
+
+  {% if page.linkedin_id %}<a href="https://www.linkedin.com/in/{{ page.linkedin_id }}/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+
+  {% if page.pronouns %} <br> {{page.pronouns}} {% endif %}
+  
+  </span>
+
+  <!-- content -->
+  
+  <hr> <!-- line-->
+  
+  <article>
+    <div class="row">
+      <div class="col">
+        {{ content }}
+      </div>
+      {% if page.img %}
+      <div class="col">
+	<img class="img-fluid"
+	     width="100%"
+	     src="{{ page.img | prepend: '/assets/img/' | relative_url }}"
+	     alt="project thumbnail">
+	</div>
+      {% endif %}      
+    </div>
+  </article>
+  
+<!-- selected publications -->
+
+{% if page.selected_publications %}
+
+<hr>
+
+<h5> selected publications </h5>
+
+ <div class="selected-publications">
+
+  {% for publication in page.selected_publications %}
+
+  <div class="publication" title="publication">
+
+    <span>{% reference publication %}</span></div> <!-- FIXME make hyperlink -->
+    
+  {% endfor %}
+
+ </div>
+
+ {% endif %}
+  
+</div>
+  
+
+
+
